@@ -1,16 +1,17 @@
-const express = require('express');
-const app = express();
+import express from 'express';
+import dotenv from 'dotenv';
+import userRoutes from './routes/users.js';
+import orderRoutes from './routes/orders.js';
+import logRoutes from './routes/logs.js';
 
-require('dotenv').config();
+dotenv.config();
+
+const app = express();
 app.use(express.json());
 
-app.use('/users', require('./routes/users'));
-app.use('/orders', require('./routes/orders'));
-app.use('/logs', require('./routes/auditLogs'));
+app.use('/users', userRoutes);
+app.use('/orders', orderRoutes);
+app.use('/logs', logRoutes);
 
-if (require.main === module) {
-  const PORT = process.env.PORT || 3000;
-  app.listen(PORT, () => console.log(`Server running on ${PORT}`));
-}
-
-module.exports = app;
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

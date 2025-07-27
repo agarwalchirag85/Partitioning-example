@@ -108,15 +108,6 @@ console.log(result.rows.map(r => r['QUERY PLAN']).join('\n'));
 
 ---
 
-## 📚 Learnings
-
-- How to define and manage PostgreSQL partitions
-- How partition pruning works
-- Benefits for query performance and data management
-- Using Knex.js with partitioned tables
-
----
-
 ## 🙌 Author
 
 Built by [Chirag Agarwal] — Learn deeply, scale wisely.
